@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dai.mozi.admin.mapper.UserDAO">
+    <resultMap id="BaseResultMap" type="com.dai.mozi.admin.po.User">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="user_phone" jdbcType="VARCHAR" property="userPhone"/>
+        <result column="user_psd" jdbcType="VARCHAR" property="userPsd"/>
+        <result column="user_status" jdbcType="VARCHAR" property="userStatus"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="last_modify_time" jdbcType="DATE" property="lastModifyTime"/>
+        <result column="last_login_time" jdbcType="DATE" property="lastLoginTime"/>
+        <result column="user_role" jdbcType="VARCHAR" property="userRole"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, user_name, user_phone, user_psd, user_status, create_time, last_modify_time,
+        last_login_time, user_role
+    </sql>
+    <select id="getUserList" resultType="com.dai.mozi.admin.po.User">
+        select *
+        from user
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.dai.mozi.admin.po.User">
+        insert into user (id, user_name, user_phone,
+                          user_psd, user_status, create_time,
+                          last_modify_time, last_login_time, user_role)
+        values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR},
+                #{userPsd,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE},
+                #{lastModifyTime,jdbcType=DATE}, #{lastLoginTime,jdbcType=DATE}, #{userRole,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.dai.mozi.admin.po.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userPhone != null">
+                user_phone,
+            </if>
+            <if test="userPsd != null">
+                user_psd,
+            </if>
+            <if test="userStatus != null">
+                user_status,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="lastModifyTime != null">
+                last_modify_time,
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time,
+            </if>
+            <if test="userRole != null">
+                user_role,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userPsd != null">
+                #{userPsd,jdbcType=VARCHAR},
+            </if>
+            <if test="userStatus != null">
+                #{userStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=DATE},
+            </if>
+            <if test="lastModifyTime != null">
+                #{lastModifyTime,jdbcType=DATE},
+            </if>
+            <if test="lastLoginTime != null">
+                #{lastLoginTime,jdbcType=DATE},
+            </if>
+            <if test="userRole != null">
+                #{userRole,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.dai.mozi.admin.po.User">
+        update user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userPsd != null">
+                user_psd = #{userPsd,jdbcType=VARCHAR},
+            </if>
+            <if test="userStatus != null">
+                user_status = #{userStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=DATE},
+            </if>
+            <if test="lastModifyTime != null">
+                last_modify_time = #{lastModifyTime,jdbcType=DATE},
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime,jdbcType=DATE},
+            </if>
+            <if test="userRole != null">
+                user_role = #{userRole,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.dai.mozi.admin.po.User">
+        update user
+        set user_name        = #{userName,jdbcType=VARCHAR},
+            user_phone       = #{userPhone,jdbcType=VARCHAR},
+            user_psd         = #{userPsd,jdbcType=VARCHAR},
+            user_status      = #{userStatus,jdbcType=VARCHAR},
+            create_time      = #{createTime,jdbcType=DATE},
+            last_modify_time = #{lastModifyTime,jdbcType=DATE},
+            last_login_time  = #{lastLoginTime,jdbcType=DATE},
+            user_role        = #{userRole,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
