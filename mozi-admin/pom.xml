@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mozi-admin-api</module>
+        <module>mozi-admin-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
