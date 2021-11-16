@@ -31,7 +31,7 @@ public class SwaggerConfiguration {
                                 "ivan.dai@nf-3.com")     //文档发布者的电子邮箱
                 )
                 .title("MOZI系统开发文档")
-                .description("LS系统是个人用于规划学习内容以及即使监控自己学习进度的管理系统。\n" +
+                .description("第一个自己的线上系统。\n" +
                         "目前用到了SpringBoot+MySql+Swagger3+mybatis等技术。")
                 .version("1.1")
                 .build();
