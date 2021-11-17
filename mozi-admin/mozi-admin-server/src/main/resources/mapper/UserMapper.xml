@@ -20,6 +20,13 @@
         select *
         from user
     </select>
+    <select id="selectByUserNameAndPsd" parameterType="com.dai.mozi.admin.po.User"
+            resultType="com.dai.mozi.admin.po.User">
+        select *
+        from user
+        where user_name = #{user.userName,jdbcType=VARCHAR}
+          and user_psd = #{user.userPsd,jdbcType=VARCHAR}
+    </select>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

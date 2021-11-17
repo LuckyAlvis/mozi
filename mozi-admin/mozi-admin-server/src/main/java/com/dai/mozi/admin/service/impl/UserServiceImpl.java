@@ -18,4 +18,13 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserList() {
         return userDAO.getUserList();
     }
+
+    @Override
+    public String login(User user) {
+        if (userDAO.selectByUserNameAndPsd(user) != null) {
+            return "登陆成功";
+        } else {
+            return "登陆失败";
+        }
+    }
 }
