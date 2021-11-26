@@ -25,4 +25,6 @@ public interface UserDAO {
     List<User> getUserList();
 
     User selectByUserNameAndPsd(@Param("user") User user);
+
+    User getUserById(int id);
 }

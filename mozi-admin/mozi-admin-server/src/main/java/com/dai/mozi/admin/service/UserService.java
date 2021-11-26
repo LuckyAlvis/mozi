@@ -9,4 +9,6 @@ public interface UserService {
     List<User> getUserList();
 
     String login(User user);
+
+    User getUserById(int id);
 }

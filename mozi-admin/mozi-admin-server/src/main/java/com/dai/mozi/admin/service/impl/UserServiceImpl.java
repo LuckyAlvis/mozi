@@ -22,9 +22,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public String login(User user) {
         if (userDAO.selectByUserNameAndPsd(user) != null) {
+//            System.out.println(userDAO.selectByUserNameAndPsd(user));
             return "登陆成功";
         } else {
             return "登陆失败";
         }
+    }
+
+    @Override
+    public User getUserById(int id) {
+        return userDAO.getUserById(id);
     }
 }

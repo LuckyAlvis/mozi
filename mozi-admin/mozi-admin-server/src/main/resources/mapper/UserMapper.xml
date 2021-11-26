@@ -17,8 +17,12 @@
         last_login_time, user_role
     </sql>
     <select id="getUserList" resultType="com.dai.mozi.admin.po.User">
-        select *
+        select <include refid="Base_Column_List"/>
         from user
+    </select>
+    <select id="getUserById" resultType="com.dai.mozi.admin.po.User" parameterType="java.lang.Integer">
+        select <include refid="Base_Column_List"/>
+        from user where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="selectByUserNameAndPsd" parameterType="com.dai.mozi.admin.po.User"
             resultType="com.dai.mozi.admin.po.User">
