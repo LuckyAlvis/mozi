@@ -10,7 +10,7 @@
     </parent>
     <modules>
         <module>mozi-admin</module>
-        <module>mozi-auth</module>
+        <module>mozi-authmanager</module>
         <module>mozi-common</module>
         <module>mozi-gateway</module>
     </modules>
