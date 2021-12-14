@@ -1,8 +1,8 @@
 package com.dai.mozi.admin.controller;
 
-import com.dai.mozi.admin.po.User;
-import com.dai.mozi.admin.po.pojo.Data;
-import com.dai.mozi.admin.po.pojo.JsonRootBean;
+import com.dai.mozi.admin.entity.User;
+import com.dai.mozi.admin.entity.pojo.Data;
+import com.dai.mozi.admin.entity.pojo.JsonRootBean;
 import com.dai.mozi.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

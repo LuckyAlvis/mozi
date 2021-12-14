@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dai.mozi.admin.mapper.UserDAO">
-    <resultMap id="BaseResultMap" type="com.dai.mozi.admin.po.User">
+    <resultMap id="BaseResultMap" type="com.dai.mozi.admin.entity.User">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="user_name" jdbcType="VARCHAR" property="userName"/>
         <result column="user_phone" jdbcType="VARCHAR" property="userPhone"/>
@@ -16,16 +16,16 @@
         id, user_name, user_phone, user_psd, user_status, create_time, last_modify_time,
         last_login_time, user_role
     </sql>
-    <select id="getUserList" resultType="com.dai.mozi.admin.po.User">
+    <select id="getUserList" resultType="com.dai.mozi.admin.entity.User">
         select <include refid="Base_Column_List"/>
         from user
     </select>
-    <select id="getUserById" resultType="com.dai.mozi.admin.po.User" parameterType="java.lang.Integer">
+    <select id="getUserById" resultType="com.dai.mozi.admin.entity.User" parameterType="java.lang.Integer">
         select <include refid="Base_Column_List"/>
         from user where id = #{id,jdbcType=INTEGER}
     </select>
-    <select id="selectByUserNameAndPsd" parameterType="com.dai.mozi.admin.po.User"
-            resultType="com.dai.mozi.admin.po.User">
+    <select id="selectByUserNameAndPsd" parameterType="com.dai.mozi.admin.entity.User"
+            resultType="com.dai.mozi.admin.entity.User">
         select *
         from user
         where user_name = #{user.userName,jdbcType=VARCHAR}
@@ -42,7 +42,7 @@
         from user
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="com.dai.mozi.admin.po.User">
+    <insert id="insert" parameterType="com.dai.mozi.admin.entity.User">
         insert into user (id, user_name, user_phone,
                           user_psd, user_status, create_time,
                           last_modify_time, last_login_time, user_role)
@@ -50,7 +50,7 @@
                 #{userPsd,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE},
                 #{lastModifyTime,jdbcType=DATE}, #{lastLoginTime,jdbcType=DATE}, #{userRole,jdbcType=VARCHAR})
     </insert>
-    <insert id="insertSelective" parameterType="com.dai.mozi.admin.po.User">
+    <insert id="insertSelective" parameterType="com.dai.mozi.admin.entity.User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -111,7 +111,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.dai.mozi.admin.po.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.dai.mozi.admin.entity.User">
         update user
         <set>
             <if test="userName != null">
@@ -141,7 +141,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.dai.mozi.admin.po.User">
+    <update id="updateByPrimaryKey" parameterType="com.dai.mozi.admin.entity.User">
         update user
         set user_name        = #{userName,jdbcType=VARCHAR},
             user_phone       = #{userPhone,jdbcType=VARCHAR},

@@ -1,12 +1,12 @@
-package com.dai.mozi.admin.po;
+package com.dai.mozi.admin.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 /**
- * @author 
- * 
+ * @author
+ *
  */
 @Data
 public class Cash implements Serializable {

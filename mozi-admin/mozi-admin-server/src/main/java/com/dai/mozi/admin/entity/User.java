@@ -1,4 +1,4 @@
-package com.dai.mozi.admin.po;
+package com.dai.mozi.admin.entity;
 
 import java.io.Serializable;
 import java.util.Date;

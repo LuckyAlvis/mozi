@@ -1,7 +1,7 @@
 /**
  * Copyright 2021 json.cn
  */
-package com.dai.mozi.admin.po.pojo;
+package com.dai.mozi.admin.entity.pojo;
 
 import java.util.List;
 

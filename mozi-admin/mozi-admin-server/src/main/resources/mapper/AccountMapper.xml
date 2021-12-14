@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dai.mozi.account.mapper.AccountDAO">
+    <resultMap id="BaseResultMap" type="com.dai.mozi.account.entity.Account">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="cash" jdbcType="DOUBLE" property="cash"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="category" jdbcType="VARCHAR" property="category"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="gmt_create" jdbcType="DATE" property="gmtCreate"/>
+        <result column="gmt_modify" jdbcType="DATE" property="gmtModify"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, cash, `type`, category, user_id, user_name, gmt_create, gmt_modify, remark
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from account
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from account
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.dai.mozi.account.entity.Account">
+        insert into account (id, cash, `type`,
+                             category, user_id, user_name,
+                             gmt_create, gmt_modify, remark)
+        values (#{id,jdbcType=INTEGER}, #{cash,jdbcType=DOUBLE}, #{type,jdbcType=VARCHAR},
+                #{category,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR},
+                #{gmtCreate,jdbcType=DATE}, #{gmtModify,jdbcType=DATE}, #{remark,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.dai.mozi.account.entity.Account">
+        insert into account
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="cash != null">
+                cash,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="category != null">
+                category,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModify != null">
+                gmt_modify,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="cash != null">
+                #{cash,jdbcType=DOUBLE},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="category != null">
+                #{category,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=DATE},
+            </if>
+            <if test="gmtModify != null">
+                #{gmtModify,jdbcType=DATE},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.dai.mozi.account.entity.Account">
+        update account
+        <set>
+            <if test="cash != null">
+                cash = #{cash,jdbcType=DOUBLE},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="category != null">
+                category = #{category,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=DATE},
+            </if>
+            <if test="gmtModify != null">
+                gmt_modify = #{gmtModify,jdbcType=DATE},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.dai.mozi.account.entity.Account">
+        update account
+        set cash       = #{cash,jdbcType=DOUBLE},
+            `type`     = #{type,jdbcType=VARCHAR},
+            category   = #{category,jdbcType=VARCHAR},
+            user_id    = #{userId,jdbcType=INTEGER},
+            user_name  = #{userName,jdbcType=VARCHAR},
+            gmt_create = #{gmtCreate,jdbcType=DATE},
+            gmt_modify = #{gmtModify,jdbcType=DATE},
+            remark     = #{remark,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

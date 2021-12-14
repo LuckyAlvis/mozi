@@ -1,6 +1,6 @@
 package com.dai.mozi.admin.mapper;
 
-import com.dai.mozi.admin.po.User;
+import com.dai.mozi.admin.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

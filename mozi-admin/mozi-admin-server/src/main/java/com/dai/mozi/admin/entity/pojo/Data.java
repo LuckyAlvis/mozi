@@ -1,7 +1,7 @@
 /**
  * Copyright 2021 json.cn
  */
-package com.dai.mozi.admin.po.pojo;
+package com.dai.mozi.admin.entity.pojo;
 
 /**
  * Auto-generated: 2021-11-30 22:55:25

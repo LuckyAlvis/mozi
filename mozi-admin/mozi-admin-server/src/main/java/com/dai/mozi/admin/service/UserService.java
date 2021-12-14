@@ -1,6 +1,6 @@
 package com.dai.mozi.admin.service;
 
-import com.dai.mozi.admin.po.User;
+import com.dai.mozi.admin.entity.User;
 
 import java.util.List;
 
